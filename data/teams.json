@@ -1,0 +1,91 @@
+[{
+    "name": "FC Barcelona",
+    "players": [
+        {
+            "name":"Raphinha",
+            "number": 11
+        },
+        {
+            "name":"L. Yamal",
+            "number": 19
+        },
+        {
+            "name":"R. Lewandowski",
+            "number": 9
+        },
+        {
+            "name":"D. Olmo",
+            "number": 20
+        },
+        {
+            "name":"E. Garcia",
+            "number": 24
+        }, 
+        {
+            "name":"I. Martinéz",
+            "number": 5
+        },
+        {
+            "name":"A. Balde",
+            "number": 3
+        },   
+        {
+            "name":"Pedri",
+            "number": 8
+        },
+        {
+            "name":"F. De Jong",
+            "number": 21
+        },
+        {
+            "name":"P. Cubarsí",
+            "number": 2
+        }  
+    ]
+    },
+    {
+    "name": "Real Madrid",
+    "players": [
+        {
+            "name":"Vinicius Jr.",
+            "number": 7
+        },
+        {
+            "name":"K. Mbappé",
+            "number": 9
+        },
+        {
+            "name":"J. Bellingham",
+            "number": 5
+        },
+        {
+            "name":"F. Valverde",
+            "number": 8
+        },
+        {
+            "name":"L. Modrič",
+            "number": 10
+        },
+        {
+            "name":"A. Rüdiger",
+            "number": 22
+        },
+        {
+            "name":"E. Camavinga",
+            "number": 6
+        },
+        {
+            "name":"R. Asencio",
+            "number": 35
+        },
+        {
+            "name":"D. Carvajal",
+            "number": 2
+        },
+        {
+            "name":"A. Güler",
+            "number": 15
+        }
+        
+    ]       
+}]

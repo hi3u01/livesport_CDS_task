@@ -30,7 +30,7 @@ const matchSchema = new mongoose.Schema ({
     events: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "event",
-        required: true   
+
     }]
 })
 

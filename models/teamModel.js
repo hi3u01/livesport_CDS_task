@@ -9,7 +9,6 @@ const teamSchema = new mongoose.Schema({
     players: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "players",
-        required: true
     }],
 });
 

@@ -7,8 +7,16 @@ const teamSchema = new mongoose.Schema({
         required: true,
     },
     players: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "players",
+        
+        name:{
+            type:String,
+            required: true,
+        },
+        number: {
+            type: Number,
+            required: true,
+        }
+
     }],
 });
 

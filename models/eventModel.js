@@ -1,10 +1,13 @@
 const mongoose = require('mongoose')
 
 const eventSchema = new mongoose.Schema ({
-    
-    player: {
+    matchId:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "player",
+        ref:"match",
+        required: true
+    },
+    player: {
+        type: String,
         required: true
     },
     minute: {

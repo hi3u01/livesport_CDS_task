@@ -24,11 +24,11 @@ async function matchSimulation(){
     const match = await newMatch.save();
     const Events = []
 
-    //const yellowCardCount = {};
     const sentOffPlayers = new Set();
 
     const randomMinute = () => Math.floor(Math.random()*90) + 1;
     
+    //get random player without red card
     const getRandomPlayer = (team) => {
       const randomPlayers = team.players.filter(p => !sentOffPlayers.has(p.name));
       return randomPlayers.length > 0 ? randomPlayers[Math.floor(Math.random() * randomPlayers.length)] : null

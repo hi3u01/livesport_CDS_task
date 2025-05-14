@@ -2,12 +2,17 @@ const express = require('express');
 const app = express();
 
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017");
+mongoose.connect("mongodb://localhost:27017/livesport_CBS");
 
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
 db.on('open', () => console.log('Connected to Databese'))
 
 app.use(express.json())
+
+const teamRouter = require('./routes/teamRouter')
+
+app.use('/teams', teamRouter)
+
 const PORT = 3000
 app.listen(PORT, () => console.log( `[SERVER] Started on port ${PORT}`))

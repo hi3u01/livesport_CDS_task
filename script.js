@@ -24,15 +24,22 @@ async function matchSimulation(){
     const match = await newMatch.save();
     const Events = []
 
+    //const yellowCardCount = {};
+    const sentOffPlayers = new Set();
+
     const randomMinute = () => Math.floor(Math.random()*90) + 1;
-    const randomPlayer = (team) => {
-      return team.players[Math.floor(Math.random() * team.players.length)]
+    
+    const getRandomPlayer = (team) => {
+      const randomPlayers = team.players.filter(p => !sentOffPlayers.has(p.name));
+      return randomPlayers.length > 0 ? randomPlayers[Math.floor(Math.random() * randomPlayers.length)] : null
     };
 
     //generating goals
     for (let i = 0; i < 5; i++){
       const scoringTeam = Math.random() > 0.5 ? homeTeam : awayTeam;
-      const scoringPlayer = randomPlayer(scoringTeam);
+      const scoringPlayer = getRandomPlayer(scoringTeam);
+      if (!scoringPlayer) continue;
+
       const goal = new Event({
         matchId: newMatch._id,
         player: scoringPlayer.name,
@@ -52,7 +59,9 @@ async function matchSimulation(){
     //generating red card
     for (let i = 0; i < 1; i++){
       const faulingTeam = Math.random() > 0.5 ? homeTeam : awayTeam;
-      const faulingPlayer = randomPlayer(faulingTeam);
+      const faulingPlayer = getRandomPlayer(faulingTeam);
+      if (!faulingPlayer) continue;
+
       const redCard = new Event({
         matchId: newMatch._id,
         player: faulingPlayer.name,
@@ -61,12 +70,15 @@ async function matchSimulation(){
       })
       await redCard.save();
       Events.push(redCard)
+      sentOffPlayers.add(faulingPlayer.name);
     }
 
     // generating yellow cards
     for (let i = 0; i < 4; i++){
       const faulingTeam = Math.random() > 0.5 ? homeTeam : awayTeam;
-      const faulingPlayer = randomPlayer(faulingTeam);
+      const faulingPlayer = getRandomPlayer(faulingTeam);
+      if (!faulingPlayer) continue;
+
       const yellowCard = new Event({
         matchId: newMatch._id,
         player: faulingPlayer.name,

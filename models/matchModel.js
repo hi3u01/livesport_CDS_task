@@ -20,17 +20,16 @@ const matchSchema = new mongoose.Schema ({
 
         homeScore:{
             type: Number,
-            required: true
+            default: 0
         },
         awayScore: {
             type: Number,
-            required: true
+            default: 0
         }
     },
     events: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "event",
-
     }]
 })
 

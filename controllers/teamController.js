@@ -15,7 +15,7 @@ exports.get = async (req, res) => {
         const team = await Team.findById(req.params.id)
         res.json(team)
 
-        if(team == null){
+        if(!team){
             return res.status(400).json({messsage: "team does not exist"})
         }
     } catch (error) {
@@ -40,7 +40,7 @@ exports.add = async(req, res) => {
 exports.patch = async (req, res) => {
     try {
         const team = await Team.findById(req.params.id)
-        if(team == null){
+        if(!team){
             return res.status(400).json({messsage: "team does not exist"})
         }
     if (req.body.name != null && req.body.name != undefined) {
@@ -59,11 +59,11 @@ exports.patch = async (req, res) => {
 exports.remove = async(req, res) => {
     try {
         const team = await Team.findByIdAndDelete(req.params.id)
-        if(team == null){
+        if(!team){
             return res.status(400).json({message: "team does not exist"})
         }
         res.json({message: "team deleted"})
-    }catch (error){
+    } catch (error){
         res.status(400).json({ message: error.message })
     }
 }
